@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Editar Producto</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { background-color: #fdfdfd; color: #2d3436; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        .container { max-width: 900px; }
+        .card { border: none; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
+        .btn { border-radius: 8px; padding: 8px 20px; font-weight: 500; transition: all 0.3s; }
+        .btn-dark { background-color: #2d3436; border: none; }
+        .btn-dark:hover { background-color: #000; transform: translateY(-1px); }
+        input.form-control { border-radius: 8px; border: 1px solid #e1e1e1; padding: 12px; }
+        input.form-control:focus { box-shadow: 0 0 0 3px rgba(45, 52, 54, 0.1); border-color: #2d3436; }
+    </style>
+</head>
+<body class="bg-light">
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <h4 class="mb-4 fw-bold">Editar Producto #{{ product.id }}</h4>
+                <form method="post" class="card p-4">
+                    <div class="mb-3">
+                        <label class="small text-muted">Nombre del artículo</label>
+                        <!-- Se agrega value="{{ product.name }}" -->
+                        <input name="name" value="{{ product.name }}" class="form-control" required>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="small text-muted">Precio ($)</label>
+                            <!-- Se agrega value="{{ product.price }}" -->
+                            <input name="price" type="number" step="0.01" value="{{ product.price }}" class="form-control" required>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="small text-muted">Stock actual</label>
+                            <!-- Se agrega value="{{ product.stock }}" -->
+                            <input name="stock" type="number" value="{{ product.stock }}" class="form-control" required>
+                        </div>
+                    </div>
+                    <div class="d-grid gap-2 mt-3">
+                        <button class="btn btn-dark">Actualizar Cambios</button>
+                        <a href="/" class="btn btn-link text-muted text-decoration-none">Cancelar y volver</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
